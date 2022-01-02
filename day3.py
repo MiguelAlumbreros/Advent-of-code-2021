@@ -4,10 +4,10 @@ def split_number(number):
     return [char for char in number]
 with open('day3_input.txt','r') as fil:
     lines = fil.readlines()
-    lines_parsed = [line.strip().split('\n') for line in lines]
-    lines_parsed_2 = []
-    for line in lines_parsed:
-        lines_parsed_2.append(line[0])
+lines_parsed = [line.strip().split('\n') for line in lines]
+lines_parsed_2 = []
+for line in lines_parsed:
+    lines_parsed_2.append(line[0])
 # sample = ['00100',
 #           '11110',
 #           '10110',
