@@ -1,6 +1,3 @@
-from typing import Counter
-
-
 file = open('input_day1.txt','r')
 lines = file.readlines()
 lines_parsed = []
