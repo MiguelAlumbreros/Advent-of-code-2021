@@ -1,4 +1,4 @@
-file = open('input_day1.txt','r')
+file = open('day1_input.txt','r')
 lines = file.readlines()
 lines_parsed = []
 for line in lines: lines_parsed.append(int(line))
