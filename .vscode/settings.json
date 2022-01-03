@@ -1,7 +1,0 @@
-{
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true,
-    "editor.formatOnSave": true,
-    "python.languageServer": "Default",
-    "python.analysis.typeCheckingMode": "basic"
-}
