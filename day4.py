@@ -15,23 +15,6 @@ def import_data() -> list:
     draw_temp = lines_parsed[0][0].split(',')
     for i in range(len(draw_temp)):
         draw_temp[i] = int(draw_temp[i])
-
-    # # Parse matrices
-    # boards_temp = []
-    # matrix_temp = []
-    # for i in range(2,len(lines)):
-    #     line_temp = lines [i].split(' ')
-    #     line_output = []
-    #     for element in line_temp:
-    #         if not element == '':
-    #             line_output.append(element)
-    #     line_output[-1] = line_output[-1].split('\n')[0]
-    #     if not line_output[0] == '':
-    #         matrix_temp.append(line_output)
-    #     else:
-    #         boards_temp.append(matrix_temp)
-    #         matrix_temp = []
-    # return draw_temp, boards_temp
     
     # Parse matrices
     boards_temp = []
