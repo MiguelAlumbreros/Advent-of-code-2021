@@ -99,10 +99,9 @@ def main():
             move_y(command)
         if command[1] == command[3]:
             move_x(command)
-
+        # todo: For part 2 check if line is diagonal (45 deg) and add function for diag mvmnt
+        # todo: Actually, they are always 45 deg according to documentation
     print(f'Result = {result_counter()}')
-
-    # todo: For part 2 check if line is diagonal (45 deg) and add function for diag mvmnt
 
 
 if __name__ == '__main__':
