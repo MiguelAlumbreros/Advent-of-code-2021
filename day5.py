@@ -102,6 +102,8 @@ def main():
 
     print(f'Result = {result_counter()}')
 
+    # todo: For part 2 check if line is diagonal (45 deg) and add function for diag mvmnt
+
 
 if __name__ == '__main__':
     main()
