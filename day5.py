@@ -53,6 +53,28 @@ def move_y(command):
         Grid.grid[j][coordinates.x_init] += 1
 
 
+def move_diag(command):
+    coordinates = Coordinates(command[0], command[1], command[2], command[3])
+
+    if coordinates.x_init < coordinates.x_end:
+        x1 = coordinates.x_init
+        y1 = coordinates.y_init
+        y2 = coordinates.y_end
+    else:
+        x1 = coordinates.x_end
+        y1 = coordinates.y_end
+        y2 = coordinates.y_init
+    inc = abs(y1 - y2)
+    # Case up
+    if y2 > y1:
+        for i in range(inc + 1):
+            Grid.grid[y1 + i][x1 + i] += 1
+    # Case down
+    else:
+        for i in range(inc + 1):
+            Grid.grid[y1 - i][x1 + i] += 1
+
+
 def result_counter() -> int:
     max_index = len(Grid.grid)
     counter = 0
@@ -65,25 +87,26 @@ def result_counter() -> int:
 
 def main():
     # Sample
-    # sample_diagram = ['0,9 -> 5,9',
-    #                   '8,0 -> 0,8',
-    #                   '9,4 -> 3,4',
-    #                   '2,2 -> 2,1',
-    #                   '7,0 -> 7,4',
-    #                   '6,4 -> 2,0',
-    #                   '0,9 -> 2,9',
-    #                   '3,4 -> 1,4',
-    #                   '0,0 -> 8,8',
-    #                   '5,5 -> 8,2']
-    _MAX_COOR = 1000
+    sample_diagram = ['0,9 -> 5,9',
+                      '8,0 -> 0,8',
+                      '9,4 -> 3,4',
+                      '2,2 -> 2,1',
+                      '7,0 -> 7,4',
+                      '6,4 -> 2,0',
+                      '0,9 -> 2,9',
+                      '3,4 -> 1,4',
+                      '0,0 -> 8,8',
+                      '5,5 -> 8,2']
+    _MAX_COOR = 1000  # Board dimensions
     diagram = diagram_parser()
     # diagram = sample_diagram
     input_data_temp = line_parser(diagram)
     # Discard non vertical or horizontal lines
     input_data = input_data_temp
-    for i, command in enumerate(input_data_temp):
-        if not (command[0] == command[2] or command[1] == command[3]):
-            input_data.pop(i)
+    """Remove below loop for Part 2"""
+    # for i, command in enumerate(input_data_temp):
+    #     if not (command[0] == command[2] or command[1] == command[3]):
+    #         input_data.pop(i)
 
     # Define global initialized grid composed of zeroes
     grid = []
@@ -97,11 +120,15 @@ def main():
     for i, command in enumerate(input_data):
         if command[0] == command[2]:
             move_y(command)
-        if command[1] == command[3]:
+        elif command[1] == command[3]:
             move_x(command)
-        # todo: For part 2 check if line is diagonal (45 deg) and add function for diag mvmnt
-        # todo: Actually, they are always 45 deg according to documentation
+        else:
+            move_diag(command)
+
     print(f'Result = {result_counter()}')
+
+    # for line in Grid.grid:
+    #     print(line)
 
 
 if __name__ == '__main__':
