@@ -62,7 +62,7 @@ def check_if_row(boards_checked: list) -> int:
                     row_x_counter += 1
                     if row_x_counter == BoardDimensions.board_dim_x:
                         print('>> ROW!')
-                        return (board_index)
+                        return board_index
             row_x_counter = 0
 
 
@@ -75,7 +75,7 @@ def check_if_column(boards_checked: list) -> int:
                     coulumn_x_counter += 1
                     if coulumn_x_counter == BoardDimensions.board_dim_x:
                         print('>> COLUMN!')
-                        return (board_index)
+                        return board_index
             coulumn_x_counter = 0
 
 

@@ -1,13 +1,14 @@
-file = open('day1_input.txt','r')
+file = open('day1_input.txt', 'r')
 lines = file.readlines()
 lines_parsed = []
-for line in lines: lines_parsed.append(int(line))
+for line in lines:
+    lines_parsed.append(int(line))
 
 prev = lines_parsed[0]
 counter = 0
 for line in lines_parsed[1:]:
-    if line > prev: 
-        counter+=1
+    if line > prev:
+        counter += 1
     prev = line
 print(counter)
 
@@ -32,17 +33,12 @@ max_index = len(lines_parsed)
 
 counter_pt2 = 0
 # sum_1 = lines_parsed[0] + lines_parsed[1] + lines_parsed[2]
-for i, line in enumerate(lines_parsed[:max_index-3]):
-    sum_1 = line + lines_parsed[i+1] + lines_parsed[i+2]
+for i, line in enumerate(lines_parsed[:max_index - 3]):
+    sum_1 = line + lines_parsed[i + 1] + lines_parsed[i + 2]
     # print(f'first numer: {sum_1}')
-    check = False
-    sum_2 = lines_parsed[i+1] + lines_parsed[i+2] + lines_parsed[i+3]
+    sum_2 = lines_parsed[i + 1] + lines_parsed[i + 2] + lines_parsed[i + 3]
     # print(f'second numer: {sum_2}')
     if sum_2 > sum_1:
-        counter_pt2+=1
-        check = True
-    # if check:
-    #     print('LARGER')
-    # print(f'count:{counter_pt2}')
-    # print()    
+        counter_pt2 += 1
+
 print(counter_pt2)
