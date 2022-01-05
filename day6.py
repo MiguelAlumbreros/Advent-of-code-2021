@@ -19,17 +19,18 @@ def parser(sample):
 
 
 def produce_list(input_data, total_days):
-    for _ in range(total_days):
+    for k in range(total_days):
+        print(k)
         append = 0
         for i, fish in enumerate(input_data):
             # Check if 0
             if fish == 0:
-                input_data[i] = 6
+                input_data[i] = Fish.RESET_AGE
                 append += 1
             else:
                 input_data[i] -= 1
         if not append == 0:
-            [input_data.append(8) for _ in range(append)]
+            [input_data.append(Fish.NEW_AGE) for _ in range(append)]
     return input_data
 
 
