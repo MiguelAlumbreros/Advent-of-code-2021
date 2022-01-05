@@ -19,8 +19,7 @@ def parser(sample):
 
 
 def produce_list(input_data, total_days):
-    for k in range(total_days):
-        print(k)
+    for _ in range(total_days):
         append = 0
         for i, fish in enumerate(input_data):
             # Check if 0
